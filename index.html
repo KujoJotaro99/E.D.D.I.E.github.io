@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+  <title>Tank Project Infographic</title>
+  <style>
+    /* -------------------------------
+       GLOBAL RESET & FONT SETTINGS
+       ------------------------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html,
+    body {
+      background-color: #ffffff; /* solid white background */
+      color: #333333;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.5;
+    }
+    a {
+      color: #e74c3c;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* -------------------------------
+       MAIN CONTAINER
+       ------------------------------- */
+    .infographic {
+      width: 90%;
+      max-width: 800px;
+      margin: 40px auto 80px;
+    }
+
+    /* -------------------------------
+       HEADER SECTION
+       ------------------------------- */
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .header h1 {
+      font-size: 3rem;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .header p {
+      font-size: 1.1rem;
+      color: #555555;
+    }
+
+    /* -------------------------------
+       SECTION WRAPPER
+       ------------------------------- */
+    .section {
+      border-left: 4px solid #2c3e50;
+      padding: 24px 24px 24px 28px;
+      margin-bottom: 40px;
+      position: relative;
+      background-color: #ffffff;
+    }
+    /* Small vertical “marker” on the left */
+    .section:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -4px;
+      width: 8px;
+      height: 8px;
+      background-color: #2c3e50;
+      border-radius: 50%;
+    }
+
+    .section h2 {
+      font-size: 1.75rem;
+      color: #2c3e50;
+      margin-bottom: 12px;
+    }
+    .section p {
+      font-size: 1rem;
+      color: #555555;
+      margin-bottom: 16px;
+    }
+
+    /* -------------------------------
+       TEXT + IMAGE LAYOUT
+       ------------------------------- */
+    .section-content {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .section-content.reverse {
+      flex-direction: row-reverse;
+    }
+    .text-block {
+      flex: 1 1 300px;
+      min-width: 250px;
+    }
+    .image-placeholder {
+      flex: 1 1 300px;
+      min-width: 250px;
+      height: 200px;
+      border: 2px dashed #bbbbbb;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbbbbb;
+      font-size: 1rem;
+      background-color: #fafafa;
+    }
+
+    /* -------------------------------
+       ICON CARD (OPTIONAL)
+       ------------------------------- */
+    .card {
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      padding: 16px;
+      background-color: #fcfcfc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+    .card .icon {
+      font-size: 2rem;
+      color: #e74c3c;
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #555555;
+      line-height: 1.4;
+    }
+
+    /* -------------------------------
+       FOOTER
+       ------------------------------- */
+    footer {
+      text-align: center;
+      color: #888888;
+      font-size: 0.9rem;
+      margin-top: 80px;
+    }
+
+    /* -------------------------------
+       RESPONISVE ADJUSTMENTS
+       ------------------------------- */
+    @media (max-width: 640px) {
+      .section-content {
+        flex-direction: column;
+      }
+      .section-content.reverse {
+        flex-direction: column;
+      }
+      .image-placeholder {
+        width: 100%;
+        max-width: 100%;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic">
+    <!-- ======== HEADER ======== -->
+    <div class="header">
+      <h1>TANK PROJECT INFOGRAPHIC</h1>
+      <p>
+        An at-a-glance overview of our camera‐vision tank: how it “sees,”
+        detects markers, and fires its turret. Replace the text below with
+        your own details as needed.
+      </p>
+    </div>
+
+    <!-- ======== SECTION 1: CAMERA VISION ======== -->
+    <div class="section" id="camera-vision">
+      <h2>Camera Vision</h2>
+      <div class="section-content">
+        <div class="text-block">
+          <p>
+            Our tank is equipped with a high-definition camera (e.g., Raspberry Pi Camera Module v2 or a 1080p USB webcam) mounted at the front.
+            The live feed is processed in real time on a small computer (Raspberry Pi 4 / Jetson Nano), allowing for image stabilization, auto‐exposure, and object recognition.
+          </p>
+          <p>
+            <strong>Key points:</strong>
+            <ul>
+              <li>1080p @ 30 FPS video input</li>
+              <li>Software‐based stabilization & noise reduction</li>
+              <li>Low‐light and fast‐moving target compensation</li>
+            </ul>
+          </p>
+        </div>
+        <div class="image-placeholder">
+          Image Placeholder
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== SECTION 2: ARUCO TAG DETECTION ======== -->
+    <div class="section" id="aruco-detection">
+      <h2>ArUco Tag Detection</h2>
+      <div class="section-content reverse">
+        <div class="text-block">
+          <p>
+            We use OpenCV’s ArUco module to spot harmless fiducial markers (4 cm × 4 cm)
+            mounted on targets or waypoints around the arena. Each tag encodes a unique integer ID,
+            so our software instantly knows “which” marker it sees and calculates its 3D pose (angle & distance).
+          </p>
+          <p>
+            <strong>Why ArUco?</strong>
+            <ul>
+              <li>Fast detection (≥ 20 FPS on Pi 4)</li>
+              <li>Pose estimation accuracy within ± 2° at 3 m</li>
+              <li>Robust under changing light and partial occlusion</li>
+            </ul>
+          </p>
+          <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Marker Library</h3>
+            <p>
+              We print custom 6×6 bit grids (IDs 0 – 99) on matte stock.  
+              Sturdy enough to mount on any obstacle or target.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">📐</div>
+            <h3>Pose Estimation</h3>
+            <p>
+              Once the marker is detected, we calculate the rotation/translation vectors
+              to pinpoint its exact location relative to the tank.  
+              This data is used to aim the turret precisely.
+            </p>
+          </div>
+        </div>
+        <div class="image-placeholder">
+          Image Placeholder
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== SECTION 3: TURRET & SHOOTING MECHANISM ======== -->
+    <div class="section" id="turret-shooting">
+      <h2>Turret &amp; Shooting Mechanism</h2>
+      <div class="section-content">
+        <div class="text-block">
+          <p>
+            The turret is built around two high-torque servos (MG995 or MG996R) mounted on a 3D-printed bracket.
+            One servo handles pan (left/right), the other handles tilt (up/down). A third micro-servo triggers the firing latch.
+          </p>
+          <p>
+            <strong>Highlights:</strong>
+            <ul>
+              <li>Pan/Tilt accuracy: ± 1° (13 kg·cm torque at 6 V)</li>
+              <li>Firing latch: spring‐loaded, servo-driven trigger</li>
+              <li>All electronics driven by Arduino Nano + 5 V – 7.4 V battery pack</li>
+            </ul>
+          </p>
+          <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Servo Configuration</h3>
+            <p>
+              – Pan servo: rotates 180° (horizontal).  
+              – Tilt servo: rotates 90° (vertical).  
+              Both controlled via PWM from Arduino Nano.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">💣</div>
+            <h3>Firing Sequence</h3>
+            <p>
+              When a valid ArUco ID is locked, the tank  
+              1) aligns turret → 2) waits 100 ms → 3) pulls the latch → 4) resets.  
+              Cycle time is ~0.5 s per shot.
+            </p>
+          </div>
+        </div>
+        <div class="image-placeholder">
+          Image Placeholder
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== SECTION 4: CONTROL & COMMUNICATION ======== -->
+    <div class="section" id="control-comms">
+      <h2>Control &amp; Communication</h2>
+      <div class="section-content reverse">
+        <div class="text-block">
+          <p>
+            The tank’s “brain” is a Raspberry Pi 4 running Python scripts.  
+            It streams camera frames to an OpenCV pipeline for marker detection and sends servo commands via serial to an Arduino Nano.
+          </p>
+          <p>
+            <strong>Key features:</strong>
+            <ul>
+              <li>Wi-Fi AP mode: operator can connect with a laptop or phone</li>
+              <li>WebSocket server on Pi: sends live telemetry (e.g., battery voltage, current target ID)</li>
+              <li>Remote‐override: emergency STOP via HTTP request</li>
+            </ul>
+          </p>
+          <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Web Interface</h3>
+            <p>
+              Simple Flask-based UI:  
+              • Live camera snapshot  
+              • Current target ID + distance  
+              • Manual‐override joystick controls  
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🔋</div>
+            <h3>Power Management</h3>
+            <p>
+              7.4 V LiPo battery (2200 mAh) → step‐down regulators for 5 V (Pi 4) and 6 V (servos).  
+              Automatic low‐voltage cut‐off at 6.6 V to protect LiPo.
+            </p>
+          </div>
+        </div>
+        <div class="image-placeholder">
+          Image Placeholder
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+      © 2025 Tank Project Team • Illustrative resource only • Replace placeholders with real images/diagrams
+    </footer>
+  </div>
+</body>
+</html>
