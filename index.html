@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tank Project Infographic (Pop-Out Images)</title>
   <style>
-    /* ==============================
-       VARIABLES & GLOBAL RESET
-       ============================== */
+
     :root {
       --primary-color: #2c3e50;
       --accent-color: #e74c3c;
@@ -26,9 +24,6 @@
     a { color:var(--accent-color); text-decoration:none; }
     a:hover { text-decoration:underline; }
 
-    /* ==============================
-       LAYOUT
-       ============================== */
     .infographic { width:90%; max-width:800px; margin:40px auto 80px; }
     .header { text-align:center; margin-bottom:60px; }
     .header h1 { font-size:3rem; color:var(--primary-color); letter-spacing:1px; margin-bottom:.5rem; }
@@ -52,15 +47,19 @@
     .section h2 { font-size:1.75rem; color:var(--primary-color); margin-bottom:12px; }
     .section p { color:var(--text-light); margin-bottom:16px; }
 
-    /* default text/image layout */
     .section-content { display:flex; align-items:flex-start; gap:24px; }
     .section-content.reverse { flex-direction:row-reverse; }
     .text-block { flex:1 1 300px; z-index:1; }
 
-    /* placeholder & real image shared styles */
     .image-wrapper { flex:1 1 var(--image-width); position:relative; top:0; z-index:2; }
     .image-placeholder, .real-image { width:100%; display:block; border-radius:6px; }
-    .real-image { box-shadow:40px 40px 40px var(--shadow-strong); }
+    .real-image {
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.15),
+        20px 10px 15px rgba(0,0,0,0.3);
+    }
+
+
 
     /* embed video */
     .video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; margin-bottom:16px; }
@@ -70,7 +69,6 @@
     .component-photos { display:flex; flex-wrap:wrap; gap:16px; margin-top:12px; }
     .component-photos img { width:calc(33% - 16px); border-radius:6px; height: auto; object-fit: contain; box-shadow:0 4px 8px var(--shadow-light); }
 
-    /* pop-out section: absolute over section area */
     .section.popout .section-content { position:relative; padding-right: calc(var(--image-width) + var(--popout-offset-x)); }
     .section.popout .image-wrapper {
       position:absolute;
@@ -99,14 +97,11 @@
       <p>A quick visual overview of our autonmous tank.</p>
     </div>
 
-        <!-- System Summary -->
     <section class="section" id="summary">
       <h2>System Summary</h2>
       <p>We use a Raspberry Pi (Camera v2) for all vision tasks; the rest of the system is driven by a PIC32 Uno stack. Two motor drivers power the wheels and flywheel based shooting mechanism, with onboard real-time image processing for stabilization and target detection, and continuous analog signal filtering.</p>
     </section>
 
-
-    <!-- Component Photos -->
     <section class="section" id="photos">
       <h2>Key Components</h2>
       <div class="component-photos">
@@ -116,7 +111,6 @@
       </div>
     </section>
 
-    <!-- Placeholder section -->
     <section class="section" id="camera-vision">
       <h2>Camera Vision and Uno Stack</h2>
       <div class="section-content">
@@ -134,8 +128,6 @@
       </div>
     </section>
 
-        <!-- System Summary -->
-    <!-- Placeholder section -->
     <section class="section" id="camera-vision">
       <h2>Drivetrain</h2>
       <div class="section-content">
@@ -153,8 +145,6 @@
       </div>
     </section>
 
-        <!-- System Summary -->
-        <!-- Placeholder section -->
     <section class="section" id="camera-vision">
       <h2>Beacon and Power Distribution</h2>
       <div class="section-content">
@@ -172,7 +162,6 @@
       </div>
     </section>
 
-    <!-- Video Demonstration -->
     <section class="section" id="video-demo">
       <h2>Video Demonstration</h2>
       <div class="video-container">
@@ -181,7 +170,6 @@
       <p>Watch our tank navigate obstacles and track targets using the onboard camera and processing unit.</p>
     </section>
 
-    <!-- Words of Wisdom -->
     <section class="section" id="wisdom">
       <h2>Words of Wisdom</h2>
       <p>Don't be average.</p>
