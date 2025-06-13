@@ -146,19 +146,19 @@
     </section>
 
     <section class="section" id="camera-vision">
-      <h2>Beacon and Power Distribution</h2>
+      <h2>Power Distribution</h2>
       <div class="section-content">
         <div class="text-block">
-          <p>These boards are used to detect the beacon, and produce an analog signal detectable by the microcontroller that corresponds to the beacon distance</p>
+          <p>The power distribution boards generate the voltages required for all electronic components of Eddie. One board is used to power all the sensors and actuators at 3.3V, 5V, and 9.9V, while a second board regulates a second batery down to 5V for the high power requirements of the Raspberry PI running OpenCV.</p>
           <ul>
-            <li>Signal Strength Amplification</li>
-            <li>2KHz Signal Band Pass Filtering</li>
-            <li>Maximum Voltage Detector</li>
+            <li>3.3V (regulated) for Beacon and sensors</li>
+            <li>5V (regulated) for sensors and servo motors</li>
+            <li>9.9V for DC motors</li>
+            <li>Seperate 5V (regulated) for Raspberry PI power</li>
           </ul>
         </div>
         <div class="image-wrapper">
-          <img src="Board1.jpg" alt="Amplification and filtering stages" class="real-image" />
-          <img src="Board2.jpg" alt="Amplifiers and Voltage Follower" class="real-image" />
+          <img src="Distro.png" alt="Tank with ArUco markers" class="real-image" />
         </div>
       </div>
     </section>
@@ -167,15 +167,17 @@
       <h2>Beacon Detector Boards</h2>
       <div class="section-content">
         <div class="text-block">
-          <p>PL</p>
+          <p>These boards are used to detect the beacon, and produce an analog signal detectable by the microcontroller that corresponds to the beacon distance. Board 1, the ampllification and filtering board, can be seen in the top image, while Board 2, the amplification and max voltage follower board, can be seen in the bottom image. They are connected by a wire harness which connects the power lines, and takes the signal out from Board 1 to Board 2.</p>
+          <p>Board features include:</p>
           <ul>
-            <li>PL</li>
-            <li>PL</li>
-            <li>PL</li>
+            <li>Signal Strength Amplification (Board 1 & 2)</li>
+            <li>2KHz Signal Band Pass Filtering (Board 1)</li>
+            <li>Maximum Voltage Detector (Board 2)</li>
           </ul>
         </div>
         <div class="image-wrapper">
-          <img src="tankmark1.png" alt="Tank with ArUco markers" class="real-image" />
+          <img src="Board1.jpg" alt="Amplification and filtering stages" class="real-image" />
+          <img src="Board2.jpg" alt="Amplifiers and Voltage Follower" class="real-image" />
         </div>
       </div>
     </section>
